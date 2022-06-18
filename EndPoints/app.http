@@ -1,0 +1,45 @@
+### AUTH CS
+POST https://api.test.cambioseguro.com/api/v1.1/auth/google
+Content-Type: application/json
+
+{
+    "code": "4/0AX4XfWiLFPQsdJQ96tBhx-NG0x6XC-pH9AlrW9SIhWaPBJ1zgERlkTcVawI55X_TtA_iyw",
+    "authuser": "1",
+    "prompt": "none",
+    "scope": "email https://www.googleapis.com/auth/userinfo.email openid"
+}
+
+
+### GENERAR TOKEN
+POST http://localhost:3000/api/v1/auth/google
+Content-Type: application/json
+
+{
+    "code": "4%2F0AX4XfWihacMTWojywFzxaeh_s46XJSFmxxlbcbqdAFm5Nv-RDA9WCg4Xz0dg0Auky9wT6g"
+}
+
+### GENERAR TOKEN
+GET http://localhost:3000/api/v1/user/me
+Authorization: Bearer ya29.a0ARrdaM_cH3HSRyttEY5LZcJPVOJrL4ufX9P7FgDB3fxgzHJDFx-gQaSeJa3rr_jn6R2LtstEQnbgwXjEJ-OGgKuugvmHH3NrJeAw1oNxMUIDdGBm-_tEg4AYKa7_BIZN2M91oJpCPKspdz5oQWSbGmfvNqfH
+Content-Type: application/json
+
+### LISTA DE MENSAJES GMAIL
+GET http://localhost:3000/api/v1/user/messages?rows=5&page=
+Authorization: Bearer ya29.a0ARrdaM_cH3HSRyttEY5LZcJPVOJrL4ufX9P7FgDB3fxgzHJDFx-gQaSeJa3rr_jn6R2LtstEQnbgwXjEJ-OGgKuugvmHH3NrJeAw1oNxMUIDdGBm-_tEg4AYKa7_BIZN2M91oJpCPKspdz5oQWSbGmfvNqfH
+Content-Type: application/json
+
+
+### PERFIL GMAIL
+GET https://www.googleapis.com/userinfo/v2/me?access_token=ya29.a0ARrdaM_cH3HSRyttEY5LZcJPVOJrL4ufX9P7FgDB3fxgzHJDFx-gQaSeJa3rr_jn6R2LtstEQnbgwXjEJ-OGgKuugvmHH3NrJeAw1oNxMUIDdGBm-_tEg4AYKa7_BIZN2M91oJpCPKspdz5oQWSbGmfvNqfH&fields=&scope=https://www.googleapis.com/auth/gmail.readonly
+Content-Type: application/json
+
+### MENSAJES BY ID GMAIL
+GET http://localhost:3000/api/v1/user/messages/18168cfae413242a
+Content-Type: application/json
+Authorization: Bearer ya29.a0ARrdaM_cH3HSRyttEY5LZcJPVOJrL4ufX9P7FgDB3fxgzHJDFx-gQaSeJa3rr_jn6R2LtstEQnbgwXjEJ-OGgKuugvmHH3NrJeAw1oNxMUIDdGBm-_tEg4AYKa7_BIZN2M91oJpCPKspdz5oQWSbGmfvNqfH
+
+### LISTA DE MENSAJES GMAIL
+GET https://www.googleapis.com/gmail/v1/users/me/messages
+Content-Type: application/json
+Authorization: Bearer ya29.a0ARrdaM_cH3HSRyttEY5LZcJPVOJrL4ufX9P7FgDB3fxgzHJDFx-gQaSeJa3rr_jn6R2LtstEQnbgwXjEJ-OGgKuugvmHH3NrJeAw1oNxMUIDdGBm-_tEg4AYKa7_BIZN2M91oJpCPKspdz5oQWSbGmfvNqfH
+X-Goog-AuthUser: 0
