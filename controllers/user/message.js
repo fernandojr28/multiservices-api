@@ -7,6 +7,8 @@ function getBodyPrint(message) {
   html = html.replace(/(<td)/igm, '<div').replace(/<\/td>/igm, '</div>')
   let plainText = textVersion(html)
   plainText = plainText.replace(/\n/g, "<br />")
+  let atts = []
+  
   return plainText
 }
 
