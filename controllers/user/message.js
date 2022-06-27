@@ -7,9 +7,15 @@ function getBodyPrint(message) {
   html = html.replace(/(<td)/igm, '<div').replace(/<\/td>/igm, '</div>')
   let plainText = textVersion(html)
   plainText = plainText.replace(/\n/g, "<br />")
-  let atts = []
-  
+  plainText = plainText.replaceAll(": <br />", ": ")
+  plainText = plainText.replaceAll(":<br />", ": ")
   return plainText
+}
+
+function getAttrs(message) {
+  let plainText = getBodyPrint(message)
+  let attrs = plainText.split("<br />").filter(x=>x)
+  return attrs
 }
 
 function getBody(message) {
@@ -181,8 +187,9 @@ async function getDataForId(ctx, next){
       subject: getHeader(data.payload.headers, 'Subject'),
       date: getHeader(data.payload.headers, 'Date'),
     },
-    body_origin: getBody(data.payload),
-    body_print: getBodyPrint(data.payload)
+    //body_origin: getBody(data.payload),
+    body_print: getBodyPrint(data.payload),
+    attrs: getAttrs(data.payload)
   }
 
   ctx.body = data
